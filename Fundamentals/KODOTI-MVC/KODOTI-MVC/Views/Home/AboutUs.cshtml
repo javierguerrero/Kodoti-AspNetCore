@@ -1,0 +1,14 @@
+﻿@model AboutUsViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<partial name="aboutUs/_header" />
+<partial name="aboutUs/_collaborators" />
+
+@await Component.InvokeAsync("LastNews")
+
+
+@section Scripts {
+    <script src="~/js/aboutus.js"></script>
+}

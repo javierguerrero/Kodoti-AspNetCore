@@ -1,0 +1,44 @@
+﻿@model FrontEnd.ViewModels.UserLoginViewModel
+@{
+    ViewData["Title"] = "Iniciar sesión";
+}
+
+<h1 class="title">@ViewData["Title"]</h1>
+
+<form asp-controller="account" asp-action="login">
+    <div class="field">
+        <label class="label">Email</label>
+        <div class="control has-icon-left has-icons-right">
+            <input asp-for="Email" class="input" type="email" placeholder="Correo electrónico" required />
+            <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+            </span>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Contraseña</label>
+        <div class="control has-icon-left has-icons-right">
+            <input asp-for="Password" class="input" type="password" placeholder="Password" required />
+            <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+            </span>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="control">
+            <input asp-for="RemeberMe" type="checkbox" />Recordar mi sesión en este equipo
+        </div>
+    </div>
+
+    <div class="field is-grouped">
+        <div class="control">
+            <button type="submit" class="button is-link">Iniciar sesión</button>
+        </div>
+        <div class="control">
+            <a asp-controller="Account" asp-action="NewUser" class="button is-text">Nuevo usuario</a>
+        </div>
+    </div>
+
+</form>

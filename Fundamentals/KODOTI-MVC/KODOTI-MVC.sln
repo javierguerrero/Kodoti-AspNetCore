@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KODOTI-MVC", "KODOTI-MVC\KODOTI-MVC.csproj", "{A490DFF7-7E1A-4A84-8F0C-DDEE7D2F42C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A490DFF7-7E1A-4A84-8F0C-DDEE7D2F42C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A490DFF7-7E1A-4A84-8F0C-DDEE7D2F42C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A490DFF7-7E1A-4A84-8F0C-DDEE7D2F42C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A490DFF7-7E1A-4A84-8F0C-DDEE7D2F42C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {777C1AC4-978C-4BDE-90AF-032C5973B7E0}
+	EndGlobalSection
+EndGlobal

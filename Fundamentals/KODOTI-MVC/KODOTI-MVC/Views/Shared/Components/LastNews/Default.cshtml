@@ -1,0 +1,17 @@
+﻿@model List<KODOTI_MVC.Views.Shared.Components.LastNews.Models.LastNewsPostModel>
+
+
+<h2>News</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Title</th>
+        <th>Body</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.Title</td>
+        <td>@item.Body</td>
+    </tr>
+    }
+</table>
