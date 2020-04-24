@@ -31,6 +31,7 @@ namespace FrontEnd.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(UserUpdateDto model)
         {
+            model.Id = User.GetUserId();
             return View(
                 await _userService.Update(model)
             );
