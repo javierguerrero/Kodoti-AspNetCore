@@ -1,0 +1,13 @@
+﻿@model ArtistDto
+@{
+    ViewData["Title"] = "Artistas";
+}
+
+<h1 class="title">@ViewData["Title"]</h1>
+<h2 class="subtitle">Listado de artistas</h2>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <a asp-controller="Artist" asp-action="Create" class="button is-primary is-medium">Nuevo artista</a>
+}
+
