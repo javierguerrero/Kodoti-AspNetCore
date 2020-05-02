@@ -1,6 +1,7 @@
-﻿@model ArtistDto
+﻿@model DataCollection<ArtistDto>
 @{
     ViewData["Title"] = "Artistas";
+    int page = Convert.ToInt32(ViewData["page"]);
 }
 
 <h1 class="title">@ViewData["Title"]</h1>
@@ -11,3 +12,58 @@
     <a asp-controller="Artist" asp-action="Create" class="button is-primary is-medium">Nuevo artista</a>
 }
 
+@if (Model.Items != null && Model.Items.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="width:100px;"></th>
+                <th style="width:200px;">Artista</th>
+                <th>Descripción</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>
+                        <img src="~/uploads/@item.LogoUrl" />
+                    </td>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td><a href="/artist/update/@item.ArtistId">Editar</a></td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" class="has-text-centered">
+                    Se han encontrado @Model.Total registros
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div class="has-text-centered">
+        @if (page > 1)
+        {
+            <a href="/artists?p=@(page-1)" class="button is-primary is-medium">
+                <span class="icon">
+                    <i class="fas fa-angle-left"></i>
+                </span>
+                <span>Anterior</span>
+            </a>
+        }
+
+        @if (page < Model.Pages)
+        {
+            <a href="/artists?p=@(page+1)" class="button is-primary is-medium">
+                <span>Siguiente</span>
+                <span class="icon">
+                    <i class="fas fa-angle-right"></i>
+                </span>
+            </a>
+        }
+    </div>
+}

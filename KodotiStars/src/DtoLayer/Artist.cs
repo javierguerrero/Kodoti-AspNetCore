@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace DtoLayer
 {
@@ -9,10 +6,10 @@ namespace DtoLayer
     {
         public int ArtistId { get; set; }
 
-        [Required(ErrorMessage ="Campo requerido"), MinLength(5, ErrorMessage ="Mínimo 5 caracteres")]
+        [Required(ErrorMessage = "Campo requerido"), MinLength(5, ErrorMessage = "Mínimo 5 caracteres")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage ="Campo requerido")]
+        [Required(ErrorMessage = "Campo requerido")]
         public string Description { get; set; }
     }
 
@@ -22,6 +19,10 @@ namespace DtoLayer
     }
 
     public class ArtistCreateDto : ArtistBaseDto
+    {
+    }
+
+    public class ArtistUpdateDto : ArtistBaseDto
     {
 
     }

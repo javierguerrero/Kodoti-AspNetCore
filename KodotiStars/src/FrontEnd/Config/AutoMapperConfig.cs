@@ -16,6 +16,7 @@ namespace FrontEnd.Config
             Mapper.Initialize(cfg => {
                 cfg.CreateMap<ApplicationUser, UserGetDto>().ReverseMap();
                 cfg.CreateMap<ArtistCreateDto, Artist>();
+                cfg.CreateMap<ArtistUpdateDto, Artist>();
             });
         }
     }

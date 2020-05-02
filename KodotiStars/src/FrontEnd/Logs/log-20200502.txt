@@ -1,0 +1,76 @@
+2020-05-02T11:13:02.7474190-05:00 80000041-0001-f800-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-05-02T11:19:37.6910628-05:00 80000058-0001-f600-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-05-02T17:05:43.7427621-05:00 80000050-0001-f900-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-05-02T17:08:50.2777322-05:00 80000072-0000-f000-b63f-84710c7967bb [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+FrontEnd.Controllers.ArtistController.Update (FrontEnd)
+FrontEnd.Controllers.ArtistController.Update (FrontEnd)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(CandidateSet candidates)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, EndpointSelectorContext context, CandidateSet candidateSet)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.SelectAsync(HttpContext httpContext, EndpointSelectorContext context, CandidateSet candidateSet)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext, EndpointSelectorContext context)
+   at Microsoft.AspNetCore.Routing.Matching.DataSourceDependentMatcher.MatchAsync(HttpContext httpContext, EndpointSelectorContext context)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-05-02T17:10:47.4716937-05:00 8000005f-0001-f600-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-05-02T17:12:56.5499259-05:00 80000062-0001-f600-b63f-84710c7967bb [ERR] 
+Unmapped members were found. Review the types and members below.
+Add a custom mapping expression, ignore, add a custom resolver, or modify the source/destination type
+For no matching constructor, add a no-arg ctor, add optional arguments, or map all of the constructor parameters
+===============================================
+AutoMapper created this type map for you, but your types cannot be mapped using the current configuration.
+ArtistUpdateDto -> Artist (Destination member list)
+DtoLayer.ArtistUpdateDto -> DomainLayer.Artist (Destination member list)
+
+Unmapped properties:
+LogoUrl
+ (c268bb96)
+2020-05-02T17:13:06.9224780-05:00 80000062-0001-f600-b63f-84710c7967bb [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.Exception: No se pudo actualizar el artista
+   at FrontEnd.Controllers.ArtistController.Update(ArtistUpdateDto model, IFormFile file) in Y:\Users\javierguerrero\DATA\Proyectos\Kodoti-AspNetCore\KodotiStars\src\FrontEnd\Controllers\ArtistController.cs:line 79
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-05-02T17:15:10.9766580-05:00 80000117-0000-fa00-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-05-02T17:16:25.0925182-05:00 8000011a-0000-fa00-b63f-84710c7967bb [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.Exception: No se pudo actualizar el artista
+   at FrontEnd.Controllers.ArtistController.Update(ArtistUpdateDto model, IFormFile file) in Y:\Users\javierguerrero\DATA\Proyectos\Kodoti-AspNetCore\KodotiStars\src\FrontEnd\Controllers\ArtistController.cs:line 79
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-05-02T17:19:50.8495769-05:00 80000124-0000-fa00-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-05-02T17:23:07.4717267-05:00 80000061-0001-fa00-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-05-02T17:23:59.1040550-05:00 80000054-0001-f800-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-05-02T17:30:29.7172710-05:00 80000056-0001-f800-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-05-02T17:35:07.0644562-05:00 80000093-0000-f000-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
