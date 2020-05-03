@@ -1,0 +1,20 @@
+﻿@model AlbumViewModel
+@{
+    ViewData["Title"] = "Album de " + Model.ArtistName;
+}
+
+<h1 class="title">@ViewData["Title"]</h1>
+<h2 class="subtitle">Formulario de album y canciones</h2>
+
+<div class="tabs">
+    <ul>
+        <li><a href="~/artist/update/@Model.ArtistId">Información básica</a></li>
+        <li class="is-active"><a>Álbum</a></li>
+    </ul>
+</div>
+
+<partial name="Album/_Add" model="new AlbumCreateDto { ArtistId = Model.ArtistId }" />
+
+<hr />
+
+<partial name="Album/_List" model="@Model.Albums" />

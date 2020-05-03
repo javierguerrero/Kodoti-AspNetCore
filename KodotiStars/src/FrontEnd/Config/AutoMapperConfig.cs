@@ -17,6 +17,10 @@ namespace FrontEnd.Config
                 cfg.CreateMap<ApplicationUser, UserGetDto>().ReverseMap();
                 cfg.CreateMap<ArtistCreateDto, Artist>();
                 cfg.CreateMap<ArtistUpdateDto, Artist>();
+
+                cfg.CreateMap<AlbumDto, Album>();
+                cfg.CreateMap<AlbumCreateDto, Album>();
+                
             });
         }
     }

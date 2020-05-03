@@ -44,6 +44,7 @@ namespace FrontEnd
             // services
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IArtistService, ArtistService>();
+            services.AddTransient<IAlbumService, AlbumService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

@@ -1,4 +1,5 @@
 ﻿using DtoLayer;
+using FrontEnd.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -13,13 +14,16 @@ namespace FrontEnd.Controllers
     public class ArtistController : Controller
     {
         private readonly IArtistService _artistService;
+        private readonly IAlbumService _albumService;
         private readonly IHostingEnvironment _hostingEnvironment;
 
         public ArtistController(
             IArtistService artistService,
+            IAlbumService albumService,
             IHostingEnvironment hostingEnvironment)
         {
             _artistService = artistService;
+            _albumService = albumService;
             _hostingEnvironment = hostingEnvironment;
         }
 
@@ -72,6 +76,35 @@ namespace FrontEnd.Controllers
                 }
 
                 throw new Exception("No se pudo actualizar el artista");
+            }
+
+            return View(model);
+        }
+
+        [HttpGet("/artist/{artistId}/album")]
+        public async Task<IActionResult> Album(int artistId)
+        {
+            var artist = await _artistService.Get(artistId);
+            var albums = await _albumService.GetAllByArtist(artistId);
+
+            return View(new AlbumViewModel { 
+                ArtistId = artist.ArtistId,
+                ArtistName = artist.Name,
+                Albums = albums
+            });
+        }
+
+        public async Task<IActionResult> AddAlbum(AlbumCreateDto model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _albumService.Create(model);
+                
+                if (result.IsSuccess)
+                {
+                    return RedirectToAction("Album", new { artistId = model.ArtistId });
+                }
+                throw new Exception("No se puedo agregar el album.");
             }
 
             return View(model);

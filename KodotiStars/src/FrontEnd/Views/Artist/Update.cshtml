@@ -1,13 +1,19 @@
 ﻿@model ArtistDto
 @{
-    ViewData["Title"] = "Nuevo artista";
+    ViewData["Title"] = Model.Name;
 }
 
 <h1 class="title">@ViewData["Title"]</h1>
-<h2 class="subtitle">Formulario de creación de artistas</h2>
+<h2 class="subtitle">Formulario de artista</h2>
+
+<div class="tabs">
+    <ul>
+        <li class="is-active"><a>Información básica</a></li>
+        <li><a href="~/artist/@Model.ArtistId/album">Álbum</a></li>
+    </ul>
+</div>
 
 <form asp-controller="Artist" asp-action="Update" method="post" enctype="multipart/form-data">
-
     <div class="columns">
         <div class="column">
             <partial name="_ArtistBasicInformation" />
