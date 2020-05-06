@@ -21,19 +21,21 @@
                 <th style="width:200px;">Artista</th>
                 <th>Descripción</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.Items)
             {
-                <tr>
-                    <td>
-                        <img src="~/uploads/@item.LogoUrl" />
-                    </td>
-                    <td>@item.Name</td>
-                    <td>@item.Description</td>
-                    <td><a href="/artist/update/@item.ArtistId">Editar</a></td>
-                </tr>
+            <tr>
+                <td>
+                    <img src="~/uploads/@item.LogoUrl" />
+                </td>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td><a href="/artist/update/@item.ArtistId">Editar</a></td>
+                <td><a href="/artist/delete/@item.ArtistId">Eliminar</a></td>
+            </tr>
             }
         </tbody>
         <tfoot>

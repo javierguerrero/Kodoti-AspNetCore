@@ -110,9 +110,16 @@ namespace FrontEnd.Controllers
             return View(model);
         }
 
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            return View();
+            var result = await _artistService.Delete(id);
+
+            if (result.IsSuccess)
+            {
+                return RedirectToAction("Index");
+            }
+
+            throw new Exception("No se puede eliminar el artista");
         }
     }
 }

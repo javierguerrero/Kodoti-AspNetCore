@@ -18,9 +18,14 @@ namespace ServiceLayer
     public interface IArtistService
     {
         Task<ResponseHelper> Create(ArtistCreateDto model);
+
         Task<DataCollection<ArtistDto>> GetPaged(int page = 1);
+
         Task<ResponseHelper> Update(ArtistUpdateDto model, IFormFile file = null);
+
         Task<ArtistDto> Get(int id);
+
+        Task<ResponseHelper> Delete(int artistId);
     }
 
     public class ArtistService : IArtistService
@@ -113,6 +118,27 @@ namespace ServiceLayer
                 _context.Update(originalEntry);
                 await _context.SaveChangesAsync();
 
+                result.IsSuccess = true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
+
+            return result;
+        }
+
+        public async Task<ResponseHelper> Delete(int artistId)
+        {
+            var result = new ResponseHelper();
+
+            try
+            {
+                _context.Remove(new Artist
+                {
+                    ArtistId = artistId
+                });
+                await _context.SaveChangesAsync();
                 result.IsSuccess = true;
             }
             catch (Exception ex)
