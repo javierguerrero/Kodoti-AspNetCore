@@ -15,16 +15,17 @@ namespace FrontEnd.Controllers
     {
         private readonly IArtistService _artistService;
         private readonly IAlbumService _albumService;
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly ISongService _songService;
 
         public ArtistController(
             IArtistService artistService,
             IAlbumService albumService,
+            ISongService songService,
             IHostingEnvironment hostingEnvironment)
         {
             _artistService = artistService;
             _albumService = albumService;
-            _hostingEnvironment = hostingEnvironment;
+            _songService = songService;
         }
 
         public async Task<IActionResult> Index(int p = 1)
@@ -107,7 +108,49 @@ namespace FrontEnd.Controllers
                 throw new Exception("No se puedo agregar el album.");
             }
 
-            return View(model);
+            // volvemos a pasar el modelo en caso falle para que cargue la data de nuevo
+            var artist = await _artistService.Get(model.ArtistId);
+            var albums = await _albumService.GetAllByArtist(model.ArtistId);
+            var resultViewModel = new AlbumViewModel
+            {
+                ArtistId = artist.ArtistId,
+                ArtistName = artist.Name,
+                Albums = albums
+            };
+
+            // especificamos la ruta de la vista manualmente
+            return View("Album", resultViewModel);
+        }
+
+        public async Task<IActionResult> AddSong(SongCreateDto model, int artistId)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _songService.Create(model);
+
+                if (result.IsSuccess)
+                {
+                    return RedirectToAction("Album", new { artistId });
+                }
+                throw new Exception("No se puedo agregar el album.");
+            }
+            else
+            {
+                ModelState.AddModelError("SongCreation", "No se pudo registrar la canción");
+            }
+
+            // volvemos a pasar el modelo en caso falle para que cargue la data de nuevo
+            var artist = await _artistService.Get(artistId);
+            var albums = await _albumService.GetAllByArtist(artistId);
+            var resultViewModel = new AlbumViewModel
+            {
+                ArtistId = artist.ArtistId,
+                ArtistName = artist.Name,
+                Albums = albums
+            };
+
+            // especificamos la ruta de la vista manualmente
+            return View("Album", resultViewModel);
         }
 
         public async Task<IActionResult> Delete(int id)

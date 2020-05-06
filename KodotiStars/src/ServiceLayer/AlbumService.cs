@@ -59,7 +59,11 @@ namespace ServiceLayer
 
             try
             {
-                var records = await _context.Albums.Where(x => x.ArtistId == artistId).ToListAsync();
+                var records = await _context.Albums
+                                            .Include(x => x.Songs)
+                                            .Where(x => x.ArtistId == artistId)
+                                            .ToListAsync();
+
                 result = Mapper.Map<List<AlbumDto>>(records);
             }
             catch (Exception ex)

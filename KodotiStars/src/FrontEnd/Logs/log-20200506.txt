@@ -1,2 +1,40 @@
 2020-05-06T11:58:46.6577647-05:00 80000020-0001-f400-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
 2020-05-06T12:15:39.5598617-05:00 8000000d-0001-f200-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-05-06T13:09:54.5602956-05:00 80000024-0001-f400-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-05-06T13:12:34.6533427-05:00 800000f3-0001-fc00-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-05-06T13:14:05.1121602-05:00 800000fb-0001-fc00-b63f-84710c7967bb [ERR] 
+Unmapped members were found. Review the types and members below.
+Add a custom mapping expression, ignore, add a custom resolver, or modify the source/destination type
+For no matching constructor, add a no-arg ctor, add optional arguments, or map all of the constructor parameters
+===========================================
+AutoMapper created this type map for you, but your types cannot be mapped using the current configuration.
+SongCreateDto -> Song (Destination member list)
+DtoLayer.SongCreateDto -> DomainLayer.Song (Destination member list)
+
+Unmapped properties:
+Album
+ (6a07b59a)
+2020-05-06T13:14:05.3955263-05:00 800000fb-0001-fc00-b63f-84710c7967bb [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.Exception: No se puedo agregar el album.
+   at FrontEnd.Controllers.ArtistController.AddSong(SongCreateDto model, Int32 artistId) in Y:\Users\javierguerrero\DATA\Proyectos\Kodoti-AspNetCore\KodotiStars\src\FrontEnd\Controllers\ArtistController.cs:line 138
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-05-06T13:19:10.1166413-05:00 800000fe-0001-fc00-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-05-06T13:22:28.4042932-05:00 80000022-0000-f300-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-05-06T13:24:41.0169883-05:00 8000001a-0000-f200-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-05-06T13:34:41.9032380-05:00 800000e8-0000-f000-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)

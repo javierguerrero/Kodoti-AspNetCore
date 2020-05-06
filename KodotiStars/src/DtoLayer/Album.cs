@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace DtoLayer
 {
@@ -13,6 +15,7 @@ namespace DtoLayer
     public class AlbumDto : AlbumBaseDto
     {
         public ArtistDto Artist { get; set; }
+        public IEnumerable<SongDto> Songs { get; set; }
     }
 
     public class AlbumCreateDto : AlbumBaseDto

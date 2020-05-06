@@ -20,7 +20,8 @@ namespace FrontEnd.Config
 
                 cfg.CreateMap<AlbumDto, Album>();
                 cfg.CreateMap<AlbumCreateDto, Album>();
-                
+
+                cfg.CreateMap<SongCreateDto, Song>();
             });
         }
     }
