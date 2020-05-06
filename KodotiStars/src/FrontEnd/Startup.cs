@@ -41,6 +41,8 @@ namespace FrontEnd
                     .AddEntityFrameworkStores<ApplicationDbContext>()
                     .AddDefaultTokenProviders();
 
+            services.AddMemoryCache();
+
             // services
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IArtistService, ArtistService>();

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace DtoLayer
 {
@@ -16,6 +17,7 @@ namespace DtoLayer
     public class ArtistDto : ArtistBaseDto
     {
         public string LogoUrl { get; set; }
+        public List<AlbumDto> Albums { get; set; }
     }
 
     public class ArtistCreateDto : ArtistBaseDto

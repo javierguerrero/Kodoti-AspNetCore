@@ -25,7 +25,11 @@ namespace ServiceLayer
 
         Task<ArtistDto> Get(int id);
 
+        Task<ArtistDto> GetFull(int id);
+
         Task<ResponseHelper> Delete(int artistId);
+
+        Task<IEnumerable<ArtistDto>> GetRandom();
     }
 
     public class ArtistService : IArtistService
@@ -72,6 +76,26 @@ namespace ServiceLayer
             return Mapper.Map<ArtistDto>(result);
         }
 
+        public async Task<ArtistDto> GetFull(int id)
+        {
+            var result = new ArtistDto();
+
+            try
+            {
+                var record = await _context.Artists
+                                    .Include(a => a.Albums)
+                                        .ThenInclude(a => a.Songs)
+                                    .SingleAsync(a => a.ArtistId == id);
+                result = Mapper.Map<ArtistDto>(record);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
+
+            return result;
+        }
+
         public async Task<DataCollection<ArtistDto>> GetPaged(int page = 1)
         {
             var result = new DataCollection<ArtistDto>();
@@ -87,6 +111,27 @@ namespace ServiceLayer
 
                 result.Total = await _context.Artists.CountAsync();
                 result.Pages = Convert.ToInt32(Math.Ceiling(Convert.ToDecimal(result.Total) / take));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
+
+            return result;
+        }
+
+        public async Task<IEnumerable<ArtistDto>> GetRandom()
+        {
+            var result = new List<ArtistDto>();
+            try
+            {
+                var take = 50;
+                var records = await _context.Artists
+                                            .OrderBy(x => Guid.NewGuid())
+                                            .Take(take)
+                                            .ToListAsync();
+
+                result = (Mapper.Map<List<ArtistDto>>(records));
             }
             catch (Exception ex)
             {

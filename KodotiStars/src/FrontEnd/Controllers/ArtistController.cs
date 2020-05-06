@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using ServiceLayer;
 using System;
 using System.Threading.Tasks;
@@ -16,13 +17,18 @@ namespace FrontEnd.Controllers
         private readonly IArtistService _artistService;
         private readonly IAlbumService _albumService;
         private readonly ISongService _songService;
+        private readonly IMemoryCache _memoryCache;
+
+        private const string ArtistDetailKey = "ArtistDetailKey_{0}";
 
         public ArtistController(
+            IMemoryCache memoryCache,
             IArtistService artistService,
             IAlbumService albumService,
             ISongService songService,
             IHostingEnvironment hostingEnvironment)
         {
+            _memoryCache = memoryCache;
             _artistService = artistService;
             _albumService = albumService;
             _songService = songService;
@@ -57,6 +63,22 @@ namespace FrontEnd.Controllers
             }
 
             return View(model);
+        }
+
+        [AllowAnonymous]
+        [HttpGet("/a/{id}")]
+        public async Task<IActionResult> Detail(int id)
+        {
+            var key = string.Format(ArtistDetailKey, id);
+            var result = _memoryCache.Get<ArtistDto>(key);
+
+            if (result == null)
+            {
+                result = await _artistService.GetFull(id);
+                _memoryCache.Set(key, result, TimeSpan.FromDays(1));
+            }
+
+            return View(result);
         }
 
         public async Task<IActionResult> Update(int id)

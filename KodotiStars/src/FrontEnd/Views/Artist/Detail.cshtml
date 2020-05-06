@@ -1,0 +1,58 @@
+﻿@model ArtistDto
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<h1 class="title">@ViewData["Title"]</h1>
+<div class="content">
+    <p>@Model.Description</p>
+</div>
+
+<div class="columns">
+    <div class="column is-4">
+
+    </div>
+    <div class="column is-4">
+        <figure class="image">
+            <img src="~/uploads/@Model.LogoUrl" />
+        </figure>
+    </div>
+</div>
+
+<h3 class="title is-size-4">Álbum(es) (@(Model.Albums?.Count() ?? 0))</h3>
+@if (Model.Albums != null && Model.Albums.Any())
+{
+    foreach (var album in Model.Albums)
+    {
+        <div class="box">
+            <h4 class="title is-size-5">@album.Name</h4>
+
+            @if (album.Songs != null && album.Songs.Any())
+            {
+                <table class="table" style="width:100%;">
+                    <tbody>
+                        @foreach (var song in album.Songs)
+                        {
+                            <tr>
+                                <td>@song.Name</td>
+                                <td style="width:100px;">@song.DurationTime</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No se han registrado canciones</p>
+            }
+        </div>
+    }
+}
+else
+{
+    <p>No se han registrado álbumes</p>
+}
+
+<hr />
+
+@await Component.InvokeAsync("ArtistComponent")

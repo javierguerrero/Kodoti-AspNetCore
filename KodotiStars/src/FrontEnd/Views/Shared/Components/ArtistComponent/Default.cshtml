@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ArtistDto>
+
+@if (Model != null)
+{
+    <div class="columns is-multiline is-3">
+        @foreach (var item in Model)
+        {
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">
+                        <a href="~/a/@item.ArtistId" class="image is-4by3">
+                            <img src="~/uploads/@item.LogoUrl" />
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <div class="title is-size-4">@item.Name</div>
+                        <div class="content">
+                            <p>@item.Description</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
