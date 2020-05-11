@@ -1,0 +1,39 @@
+2020-04-24T09:28:37.8168113-05:00 8000003a-0001-fa00-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-04-24T09:29:50.3588495-05:00 8000002a-0001-f500-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-04-24T09:34:01.4854910-05:00 8000003b-0000-ef00-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-04-24T09:35:46.6267041-05:00 8000003e-0000-ef00-b63f-84710c7967bb [INF] Obteniendo usuario "(null)" (52ca00f1)
+2020-04-24T09:35:46.9395396-05:00 8000003e-0000-ef00-b63f-84710c7967bb [ERR] An exception occurred while iterating over the results of a query for context type '"PersistenceLayer.ApplicationDbContext"'."
+""System.InvalidOperationException: Source sequence doesn't contain any elements.
+   at System.Linq.AsyncEnumerable.Single_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Single.cs:line 136
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)" (f5c7ac34)
+System.InvalidOperationException: Source sequence doesn't contain any elements.
+   at System.Linq.AsyncEnumerable.Single_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Single.cs:line 136
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+2020-04-24T09:35:46.9498526-05:00 8000003e-0000-ef00-b63f-84710c7967bb [ERR] An exception occurred while iterating over the results of a query for context type '"PersistenceLayer.ApplicationDbContext"'."
+""System.InvalidOperationException: Source sequence doesn't contain any elements.
+   at System.Linq.AsyncEnumerable.Single_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Single.cs:line 136
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteSingletonAsyncQuery[TResult](QueryContext queryContext, Func`2 compiledQuery, IDiagnosticsLogger`1 logger, Type contextType)" (f5c7ac34)
+System.InvalidOperationException: Source sequence doesn't contain any elements.
+   at System.Linq.AsyncEnumerable.Single_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Single.cs:line 136
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteSingletonAsyncQuery[TResult](QueryContext queryContext, Func`2 compiledQuery, IDiagnosticsLogger`1 logger, Type contextType)
+2020-04-24T09:35:47.1097264-05:00 8000003e-0000-ef00-b63f-84710c7967bb [ERR] Source sequence doesn't contain any elements. (89ab287a)
+2020-04-24T09:36:16.0315658-05:00 80000040-0000-ef00-b63f-84710c7967bb [INF] Obteniendo usuario "(null)" (52ca00f1)
+2020-04-24T09:39:51.2326435-05:00 80000036-0001-f800-b63f-84710c7967bb [INF] Running HomeController (63ef8c40)
+2020-04-24T09:40:02.8293733-05:00 80000038-0001-f800-b63f-84710c7967bb [INF] Obteniendo usuario "ceaaac28-57d0-48bd-86fc-9e615f76fe86" (52ca00f1)
+2020-04-24T09:40:02.8603124-05:00 80000038-0001-f800-b63f-84710c7967bb [INF] Seteando propiedades (95023657)
+2020-04-24T09:40:02.8637244-05:00 80000038-0001-f800-b63f-84710c7967bb [INF] Actualizando usuario (bd64c47a)
+2020-04-24T09:40:02.8922329-05:00 80000038-0001-f800-b63f-84710c7967bb [INF] Guardando cambios (4a062078)

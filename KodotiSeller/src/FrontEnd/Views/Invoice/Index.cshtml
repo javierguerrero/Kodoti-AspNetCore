@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Comprobantes";
+}
+
+<h1 class="title">@ViewData["Title"]</h1>
+<h2 class="subtitle">Listado de comprobantes</h2>
+
+<div class="has-text-right">
+    <a asp-controller="Invoice" asp-action="Create" class="button">
+        <span class="icon">
+            <i class="fa fa-plus"></i>
+        </span>
+        <span>Nuevo comprobante</span>
+    </a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th style="width:100px;">#</th>
+            <th>Cliente</th>
+            <th class="has-text-right">IVA</th>
+            <th class="has-text-right">Sub Total</th>
+            <th class="has-text-right">Total</th>
+            <th class="has-text-right">Fecha</th>
+            <th style="width:100px;"></th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
